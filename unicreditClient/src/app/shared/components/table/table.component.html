@@ -1,0 +1,29 @@
+<section class="custom-table">
+  <table>
+    <th *ngFor="let column of columnHeader">{{ column }}</th>
+
+    <tr *ngFor="let book of data; let index = index">
+      <td *ngFor="let column of columnHeader">
+        <input *ngIf="book.editMode" type="text" [(ngModel)]="book[column]" class="input-edit">
+        <span *ngIf="!book.editMode">
+          {{ book[column] }}
+        </span>
+      </td>
+
+
+      <div class="table-actions">
+        <button mat-mini-fab color="primary" *ngIf="!book.editMode" (click)="book.editMode=!book.editMode">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-raised-button color="warn" *ngIf="book.editMode" (click)="cancelBtn(book, index)">
+          Cancel
+        </button>
+  
+        <button type="submit" mat-raised-button *ngIf="book.editMode" (click)="updateBook(book)" class="save-book-btn">
+          Save
+        </button>
+      </div>
+    </tr>
+  </table>
+</section>

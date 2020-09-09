@@ -1,0 +1,26 @@
+.layout-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #1a232b;
+  opacity: 0.9;
+  width: 100%;
+  overflow: hidden;
+  padding: 16px 0;
+
+  .logo {
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    color: white;
+    font-weight: 800;
+    font-style: italic;
+    background-color: #1a232b;
+    padding: 0;
+    margin-right: 48px;
+
+    span {
+      font-size: 24px;
+    }
+  }
+}

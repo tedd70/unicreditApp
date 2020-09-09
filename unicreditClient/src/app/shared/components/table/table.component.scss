@@ -1,0 +1,43 @@
+.custom-table {
+  table {
+    display: inline-block;
+
+    td, th {
+      border: 1px solid #ddd;
+      padding: 4px;
+      width: 160px;
+
+      span {
+        font-size: 14px;
+      }
+    }
+
+    th {
+      padding: 8px;
+      text-align: left;
+      color: #ffffff;
+      background-color: #1976d2;
+      text-transform: capitalize;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .input-edit {
+      padding: 0;
+      margin: 0;
+      border: none;
+      outline: 0;
+    }
+
+    .table-actions {
+      button {
+        margin: 4px;
+      }
+    }
+  }
+
+  .save-book-btn {
+    background-color: green;
+    color: white;
+  }
+}

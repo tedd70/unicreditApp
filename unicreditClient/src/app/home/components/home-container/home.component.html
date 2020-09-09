@@ -1,0 +1,35 @@
+<section class="container">
+  <div class="home-search">
+    <input type="text" placeholder="Search Book By Name" (keyup)="searchBook(keyword)" [(ngModel)]="keyword"/>
+    <mat-icon class="search-icon">search</mat-icon>
+  </div>
+
+  <div class="home-page-categories-and-books">
+    <div *ngIf="allCategories && allCategories.length > 0" class="home-categories">
+      <div 
+        *ngFor="let category of allCategories" 
+          class="each-category"
+        >
+        <div 
+          (click)="changeCategory(category.id)"
+          [ngClass]="category.id == selectedCategoryId ? 'active' : 'inactive'"
+        >
+          {{ category.name }}
+        </div>
+      </div>
+    </div>
+  
+    <div class="home-books">
+      <div *ngIf="books && books.length > 0">
+        <app-table [data]="books"  (update)="updateBook($event)"></app-table>
+      </div>
+  
+      <div class="btn-create">
+        <button mat-raised-button (click)="openModal()" title="Create new book">Create new book</button>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+</section>

@@ -1,0 +1,29 @@
+<div class="home-form-section">
+  <h2 mat-dialog-title class="home-form-title">Create New Book</h2>
+  
+  <mat-dialog-content class="mat-typography">
+    <div class="create-new-book-inputs">
+      <input type="text" placeholder="Name" [(ngModel)]="data.name"/>
+      <input type="text" placeholder="Author" [(ngModel)]="data.author"/>
+      <input type="text" placeholder="Description" [(ngModel)]="data.description"/>
+      <input type="number" placeholder="Quantity" [(ngModel)]="data.quantity"/>
+      <input type="text" placeholder="Price" [(ngModel)]="data.price"/>
+      <input type="text" placeholder="Location" [(ngModel)]="data.location"/> 
+      <select name="category" id="category" [(ngModel)]="data.categoryId"> 
+        <option value="" disabled selected>Choose a category</option>
+         <option *ngFor="let option of data.categories" value={{option.id}}>{{ option.name }}</option>
+      </select>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions ALIGN="end">
+    <button mat-button mat-dialog-close (click)='closeDialog()'>Cancel</button>
+    <button 
+      mat-button 
+      mat-dialog-close 
+      [mat-dialog-close]="data"
+      [disabled]="!(data.name && data.price && data.quantity && data.location)"
+    >Create</button>
+  </mat-dialog-actions>
+</div>
+
